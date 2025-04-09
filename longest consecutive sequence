@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        unordered_map<int,int>mp;
+        int ans=0;
+
+        for(auto it:nums) mp[it]+=1;
+
+        for(auto it:mp){
+            int val=it.first;
+            if(mp.find(val-1)==mp.end()){
+                int curr=val;
+                while(mp.find(curr)!=mp.end()){
+                    curr++;
+                }
+                ans=max(ans, curr-val);
+            }
+        }
+        return ans;
+        
+    }
+};
