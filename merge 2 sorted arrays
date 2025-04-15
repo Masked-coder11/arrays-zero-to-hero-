@@ -1,0 +1,32 @@
+class Solution {
+public:
+    void merge(vector<int>& v1, int n, vector<int>& v2, int m) {
+        int end=n+m-1;
+        int i=n-1, j=m-1;
+        while(i>=0 && j>=0){
+            if(v1[i]>=v2[j]){
+                v1[end]=v1[i];
+                end--;
+                i--;
+            }
+            else{
+                v1[end]=v2[j];
+                end--;
+                j--;
+            }
+        }
+        while(i>=0){
+            v1[end]=v1[i];
+            end--;
+            i--;
+        }
+        while(j>=0){
+            v1[end]=v2[j];
+            end--;
+            j--;
+        }
+        return ;
+
+        
+    }
+};
