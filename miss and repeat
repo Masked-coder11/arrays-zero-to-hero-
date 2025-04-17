@@ -1,0 +1,20 @@
+class Solution {
+  public:
+    vector<int> findTwoElement(vector<int>& arr) {
+        // code here
+        int miss, rep;
+        int n=arr.size();
+        for(int i=0;i<n;i++){
+            int ele=arr[i];
+            int idx= abs(ele)-1;
+            if(arr[idx]<0) rep=idx+1;
+            else arr[idx]=-arr[idx];
+        }
+        
+        for(int i=0;i<n;i++){
+            if(arr[i]>0) miss=i+1;
+        }
+        
+        return {rep, miss};
+    }
+};
